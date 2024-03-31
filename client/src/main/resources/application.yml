@@ -22,9 +22,7 @@ spring:
     hibernate:
       ddl-auto: validate
 
-my:
-  hello: Hello my friend
-
 microservices:
-  catalogHost: localhost
+#  catalogHost: localhost
+  catalogHost: catalog
   catalogPort: 9091
