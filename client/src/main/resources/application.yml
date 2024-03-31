@@ -24,5 +24,5 @@ spring:
 
 microservices:
 #  catalogHost: localhost
-  catalogHost: catalog
+  catalogHost: ${CATALOG_HOST:localhost}
   catalogPort: 9091

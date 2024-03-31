@@ -17,3 +17,5 @@ services:
       - "7092:9092"
     depends_on:
       - catalog
+    environment:
+      - CATALOG_HOST=catalog

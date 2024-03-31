@@ -44,7 +44,7 @@ public class ClientController {
         // Выполняем GET-запрос к микросервису с книгами
         String catalogUrl = "http://" + catalogHost + ":" + catalogPort + "/books";
 //        String catalogUrl = "http://" + "catalog" + ":" + catalogPort + "/books";
-
+        System.out.println("URL: ");
         System.out.println(catalogUrl);
         return restTemplate.getForObject(catalogUrl, List.class);
     }
