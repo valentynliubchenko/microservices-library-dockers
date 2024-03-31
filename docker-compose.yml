@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  catalog:
+    build:
+      context: ./catalog
+      dockerfile: src/main/docker/Dockerfile
+    container_name: my-catalog-container
+    ports:
+      - "7091:9091"
+#
+#  client:
+#    build:
+#      context: ./client
+#      dockerfile: src/main/docker/Dockerfile
+#    container_name: my-client-container
+#    ports:
+#      - "9092:9092"  # Если порт 9092 указан в Dockerfile для экспоза
+#    depends_on:
+#      - catalog
