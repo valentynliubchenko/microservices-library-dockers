@@ -1,9 +1,7 @@
 package com.valentyn;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,21 @@ public class CatalogController {
     @GetMapping
     public List<BookDTO> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @PostMapping
+    public BookDTO saveBook(@RequestBody BookDTO book) {
+        return bookService.saveBook(book);
+    }
+
+    @GetMapping("/{id}")
+    public BookDTO getBookById(@PathVariable Long id) {
+        return bookService.getBookById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBookById(@PathVariable Long id) {
+        bookService.deleteBookById(id);
     }
 }
 
