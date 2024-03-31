@@ -1,41 +1,24 @@
 databaseChangeLog:
   - changeSet:
-      id: insert-sample-books
+      id: insert-client-data
       author: your_name
       changes:
         - insert:
-            tableName: Book
+            tableName: CLIENT
             columns:
               - column:
-                  name: id
-                  valueNumeric: 1
+                  name: name
+                  value: "John Doe"
               - column:
-                  name: title
-                  value: "The Great Gatsby"
-              - column:
-                  name: author
-                  value: "F. Scott Fitzgerald"
+                  name: email
+                  value: "john@example.com"
+
         - insert:
-            tableName: Book
+            tableName: CLIENT
             columns:
               - column:
-                  name: id
-                  valueNumeric: 2
+                  name: name
+                  value: "Jane Smith"
               - column:
-                  name: title
-                  value: "To Kill a Mockingbird"
-              - column:
-                  name: author
-                  value: "Harper Lee"
-        - insert:
-            tableName: Book
-            columns:
-              - column:
-                  name: id
-                  valueNumeric: 3
-              - column:
-                  name: title
-                  value: "1984"
-              - column:
-                  name: author
-                  value: "George Orwell"
+                  name: email
+                  value: "jane@example.com"

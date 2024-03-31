@@ -1,13 +1,13 @@
 package com.valentyn;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WebClientApp
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        SpringApplication.run(WebClientApp.class);
     }
 }

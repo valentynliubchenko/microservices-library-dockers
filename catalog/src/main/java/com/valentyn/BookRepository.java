@@ -1,2 +1,11 @@
-package com.valentyn;public class BookRepository {
+package com.valentyn;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface BookRepository extends JpaRepository<BookDTO, Long> {
+    List<BookDTO> findByAuthorContaining(String authorPart);
 }

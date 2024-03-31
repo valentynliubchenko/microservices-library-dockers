@@ -5,7 +5,7 @@ spring:
   datasource:
     username: sa
     password: pwd
-    url: jdbc:h2:file:./db/demodb;MODE=PostgreSQL
+    url: jdbc:h2:file:./db/catalogdb;MODE=PostgreSQL
     driverClassName: org.h2.Driver
 
   h2:

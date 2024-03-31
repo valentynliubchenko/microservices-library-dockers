@@ -1,11 +1,19 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 
-autonumber
+package "com.valentyn" {
+    class BookDTO {
+        -id: Long
+        -title: String
+        -author: String
+    }
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+    class ClientDTO {
+        -id: Long
+        -name: String
+        -email: String
+    }
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+    BookDTO <-- ClientDTO : uses
+}
+
 @enduml
