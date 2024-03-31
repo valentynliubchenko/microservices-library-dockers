@@ -21,3 +21,10 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: validate
+
+my:
+  hello: Hello my friend
+
+microservices:
+  catalogHost: localhost
+  catalogPort: 9091
