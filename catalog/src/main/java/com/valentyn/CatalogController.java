@@ -13,17 +13,17 @@ public class CatalogController {
     private final BookService bookService;
 
     @GetMapping
-    public List<BookDTO> getAllBooks() {
+    public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
     @PostMapping
-    public BookDTO saveBook(@RequestBody BookDTO book) {
+    public Book saveBook(@RequestBody Book book) {
         return bookService.saveBook(book);
     }
 
     @GetMapping("/{id}")
-    public BookDTO getBookById(@PathVariable Long id) {
+    public Book getBookById(@PathVariable Long id) {
         return bookService.getBookById(id);
     }
 

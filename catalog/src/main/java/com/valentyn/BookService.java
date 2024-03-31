@@ -3,6 +3,7 @@ package com.valentyn;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -10,17 +11,22 @@ import java.util.List;
 public class BookService {
 
     private final BookRepository bookRepository;
+    private final BookConverter bookConverter;
 
-    public BookDTO saveBook(BookDTO book) {
-        return bookRepository.save(book);
+    public Book saveBook(Book book) {
+        return bookConverter.fromDTO(bookRepository.save(bookConverter.toDTO(book)));
     }
 
-    public List<BookDTO> getAllBooks() {
-        return bookRepository.findAll();
+    public List<Book> getAllBooks() {
+        List<Book> bookList = new ArrayList<>();
+        for (BookDTO bookDTO : bookRepository.findAll()) {
+            bookList.add(bookConverter.fromDTO(bookDTO));
+        }
+        return bookList;
     }
 
-    public BookDTO getBookById(Long id) {
-        return bookRepository.findById(id).orElse(null);
+    public Book getBookById(Long id) {
+        return bookConverter.fromDTO(bookRepository.findById(id).orElse(null));
     }
 
     public void deleteBookById(Long id) {
