@@ -32,7 +32,7 @@ public class ClientController {
     }
 
     @GetMapping("/books")
-    public List<BookDTO> getAllBooks() {
+    public List<Book> getAllBooks() {
         // Выполняем GET-запрос к микросервису с книгами
         String booksUrl = "http://localhost:9091/books";
         return restTemplate.getForObject(booksUrl, List.class);

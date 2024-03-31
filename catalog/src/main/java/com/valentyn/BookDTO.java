@@ -3,8 +3,9 @@ package com.valentyn;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
+
 @Data
+@Entity(name = "BookDTO")
 @Table(name = "BOOK")
 public class BookDTO {
 
