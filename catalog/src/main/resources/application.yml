@@ -2,31 +2,16 @@ server:
   port: 9091
 
 spring:
-#  datasource:
-#    username: sa
-#    password: pwd
-#    url: jdbc:h2:file:./db/catalogdb;MODE=PostgreSQL
-#    driverClassName: org.h2.Driver
 
   datasource:
-    url: ${URL_DB_CATALOG:jdbc:postgresql://localhost:5433/db-catalog}
-    username: catalog
-    password: catalog
+    url: ${URL_DB_CATALOG:jdbc:postgresql://localhost:5435/db-name-general}
+    username: general
+    password: general
     driver-class-name: org.postgresql.Driver
-
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
 
   liquibase:
     enabled: true
     change-log: classpath:db.changelog/changelog-master.yml
-
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    hibernate:
-#      ddl-auto: validate
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

@@ -8,10 +8,10 @@ services:
     ports:
       - "7091:9091"
     depends_on:
-      - db-client
+      - db-general
     environment:
       - CATALOG_HOST=catalog
-      - URL_DB_CATALOG=jdbc:postgresql://db-catalog:5432/db-catalog
+      - URL_DB_CATALOG=jdbc:postgresql://db-general:5432/db-name-general
 
   client:
     build:
@@ -22,31 +22,19 @@ services:
       - "7092:9092"
     depends_on:
       - catalog
-      - db-catalog
+      - db-general
     environment:
       - CATALOG_HOST=catalog
-      - URL_DB_CLIENT=jdbc:postgresql://db-client:5432/db-client
+      - URL_DB_CLIENT=jdbc:postgresql://db-general:5432/db-name-general
 
-  db-catalog:
+  db-general:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_DB: db-catalog
-      POSTGRES_USER: catalog
-      POSTGRES_PASSWORD: catalog
+      POSTGRES_DB: db-name-general
+      POSTGRES_USER: general
+      POSTGRES_PASSWORD: general
     ports:
-      - 5433:5432
+      - 5435:5432
     volumes:
-      - ./opt/catalog/pg-data:/var/lib/postgresql/data
-
-  db-client:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_DB: db-client
-      POSTGRES_USER: client
-      POSTGRES_PASSWORD: client
-    ports:
-      - 5434:5432
-    volumes:
-      - ./opt/client/pg-data:/var/lib/postgresql/data
+      - ./opt/general/pg-data:/var/lib/postgresql/data

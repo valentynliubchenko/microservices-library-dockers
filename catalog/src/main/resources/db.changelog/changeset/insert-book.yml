@@ -39,3 +39,9 @@ databaseChangeLog:
               - column:
                   name: author
                   value: "George Orwell"
+  - changeSet:
+      id: set-initial-value-for-id
+      author: valentyl
+      changes:
+        - sql:
+            sql: "ALTER SEQUENCE book_id_seq RESTART WITH 4;"

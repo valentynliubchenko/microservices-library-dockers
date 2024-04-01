@@ -14,7 +14,10 @@ public class BookService {
     private final BookConverter bookConverter;
 
     public Book saveBook(Book book) {
-        return bookConverter.fromDTO(bookRepository.save(bookConverter.toDTO(book)));
+        BookDTO bookDTO = bookConverter.toDTO(book);
+        bookDTO.setId(0L);
+        System.out.println("bookDTO: " + bookDTO);
+        return bookConverter.fromDTO(bookRepository.save(bookDTO));
     }
 
     public List<Book> getAllBooks() {
