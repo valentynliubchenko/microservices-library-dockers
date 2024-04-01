@@ -9,6 +9,9 @@ services:
       - "7091:9091"
     depends_on:
       - db-client
+    environment:
+      - CATALOG_HOST=catalog
+      - URL_DB_CATALOG=jdbc:postgresql://db-catalog:5432/db-catalog
 
   client:
     build:
@@ -22,6 +25,7 @@ services:
       - db-catalog
     environment:
       - CATALOG_HOST=catalog
+      - URL_DB_CLIENT=jdbc:postgresql://db-client:5432/db-client
 
   db-catalog:
     image: postgres:latest

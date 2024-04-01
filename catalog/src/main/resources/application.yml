@@ -9,7 +9,7 @@ spring:
 #    driverClassName: org.h2.Driver
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/db-catalog
+    url: ${URL_DB_CATALOG:jdbc:postgresql://localhost:5433/db-catalog}
     username: catalog
     password: catalog
     driver-class-name: org.postgresql.Driver

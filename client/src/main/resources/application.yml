@@ -8,7 +8,7 @@ spring:
 #    url: jdbc:h2:file:./db/clientdb;MODE=PostgreSQL
 #    driverClassName: org.h2.Driver
   datasource:
-    url: jdbc:postgresql://localhost:5434/db-client
+    url: ${URL_DB_CLIENT:jdbc:postgresql://localhost:5434/db-client}
     username: client
     password: client
     driver-class-name: org.postgresql.Driver
