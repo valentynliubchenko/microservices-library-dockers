@@ -20,6 +20,7 @@ public class ClientService {
     }
 
     public ClientDTO addClient(ClientDTO client) {
+        client.setId(0L);
         return clientRepository.save(client);
     }
 }

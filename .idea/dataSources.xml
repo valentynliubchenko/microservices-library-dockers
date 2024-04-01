@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:h2:file:./db/catalogdb;MODE=PostgreSQL</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="db-catalog@localhost" uuid="83e3f8df-cd0b-43c1-8958-97591f851f2a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/db-catalog</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

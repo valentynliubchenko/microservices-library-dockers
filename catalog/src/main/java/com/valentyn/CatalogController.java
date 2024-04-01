@@ -19,6 +19,7 @@ public class CatalogController {
 
     @PostMapping
     public Book saveBook(@RequestBody Book book) {
+        book.setId(0l);
         return bookService.saveBook(book);
     }
 

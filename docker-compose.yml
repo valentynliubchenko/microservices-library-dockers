@@ -7,6 +7,8 @@ services:
     container_name: my-catalog-container
     ports:
       - "7091:9091"
+    depends_on:
+      - db-client
 
   client:
     build:
@@ -17,5 +19,30 @@ services:
       - "7092:9092"
     depends_on:
       - catalog
+      - db-catalog
     environment:
       - CATALOG_HOST=catalog
+
+  db-catalog:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: db-catalog
+      POSTGRES_USER: catalog
+      POSTGRES_PASSWORD: catalog
+    ports:
+      - 5433:5432
+    volumes:
+      - ./opt/catalog/pg-data:/var/lib/postgresql/data
+
+  db-client:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: db-client
+      POSTGRES_USER: client
+      POSTGRES_PASSWORD: client
+    ports:
+      - 5434:5432
+    volumes:
+      - ./opt/client/pg-data:/var/lib/postgresql/data

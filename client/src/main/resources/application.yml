@@ -2,23 +2,28 @@ server:
   port: 9092
 
 spring:
+#  datasource:
+#    username: sa
+#    password: pwd
+#    url: jdbc:h2:file:./db/clientdb;MODE=PostgreSQL
+#    driverClassName: org.h2.Driver
   datasource:
-    username: sa
-    password: pwd
-    url: jdbc:h2:file:./db/clientdb;MODE=PostgreSQL
-    driverClassName: org.h2.Driver
+    url: jdbc:postgresql://localhost:5434/db-client
+    username: client
+    password: client
+    driver-class-name: org.postgresql.Driver
 
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
 
   liquibase:
     enabled: true
     change-log: classpath:db.changelog/changelog-master.yml
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
 
